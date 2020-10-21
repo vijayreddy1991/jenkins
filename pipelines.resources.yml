@@ -1,0 +1,13 @@
+resources:
+  - name: vijay_test_jenkins
+    type: GitRepo
+    configuration:
+      gitProvider: vijay
+      path: vijayreddy1991/jenkins
+      branches:
+        include: ^{{gitBranch}}$
+  - name: jenkins_resource
+    type: PropertyBag
+    configuration:
+      passing: 0
+      failing: 0
