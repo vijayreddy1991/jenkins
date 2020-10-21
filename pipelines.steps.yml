@@ -1,0 +1,20 @@
+pipelines:
+  - name: vijay_test_jenkins
+    steps:
+    - name: vijay_test_app
+      type: Jenkins
+      configuration:
+        jenkinsJobName: mybuild/job/build3/job/escape_fwd_slash
+        jenkinsBranchName: {{gitBranch}}
+        integrations:
+          - name: vijay_jenkins
+        outputResources:
+          - name: jenkins_resource
+    - name: vijay_print_results
+      type: Bash
+      configuration:
+        inputResources:
+          - name: jenkins_resource
+      execution:
+        onExecute:
+          - printenv
